@@ -7,7 +7,7 @@ let header = `
     
     <div class="col-md-5 col-sm-4 col-lg-4">
       <div class="card border-0" id="divLogo">
-        <img id="logo" src="../images/logo.jpeg" alt="logo" />
+        <img id="logo" src="../ClimaYa/images/logo.jpeg" alt="logo" />
       </div>
     </div>
     
@@ -30,7 +30,7 @@ let header = `
 <nav class="main-nav">
       <div id="toggle-menu" class="toggle-menu">
         <label for="toggle-menu-checkbox">
-          <img src="../images/hamburguer-icon.png" alt="" />
+          <img src="../ClimaYa/images/hamburguer-icon.png" alt="" />
         </label>
       </div>
       <input
@@ -259,11 +259,11 @@ function fondoBody(){
    let body = document.getElementsByTagName("body")[0];
 
   if (horaActual > 7 && horaActual < 21) {
-    body.style.backgroundImage = 'url("../images/dia.jpg")';
+    body.style.backgroundImage = 'url("../ClimaYa/images/dia.jpg")';
     body.style.backgroundPosition = "0 0";
     body.style.color = "#000000";
   } else {
-    body.style.backgroundImage = 'url("../images/noche.jpg")';
+    body.style.backgroundImage = 'url("../ClimaYa/images/noche.jpg")';
     body.style.backgroundPosition = "0 0";
     body.style.color = "#FFFFFF";
   }
