@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="images/icono.png" type="image/x-icon">
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="./css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/estilos.css">
+
+    <title>Clima</title>
+
+</head>
+
+<body onload="onLoad(); fondoBody()">
+    
+    <header class="idHeader"></header>
+
+    <div class="text-center">
+        <div class="spinner-border" id="loader" role="status">
+        <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+
+    <div id="container" class="container">
+        <div class="container-fluid">
+            
+            <div class="card  w-100 fondoCard" id="sec_hoy">
+                <div class="card-header">
+                    <p class="ubicacion" style="font-size: 2rem;"></p>
+                </div>
+                
+                <div class="card-body ">
+
+                    <div class="container">
+                        <div class="row w-100">
+                          <!-- Columna izquierda (imagen y descripción) -->
+                          <div class="col-md-6 colIzquierda">
+                            <div class="card bg-transparent border-0"> <!--fondo transparente sin borde -->
+                              <img id="bloqueHoy"  class="card-img-top" alt="">
+                              <div id="description"></div>
+                             
+                            </div>
+                          </div>
+                          <!-- Columna derecha (texto) -->
+                          <div class="col-md-6 colDerecha">
+                            <div class="card bg-transparent border-0" style="color: white;">
+                              <div class="card-body estiloTemperatura">
+                                <span id="temperature"></span><span> ºC</span>                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                 
+                </div>
+
+            </div>       
+
+            <div class="card  w-100 " id="sec_detalle">
+                <div class="card-header">
+                    <span>Pronóstico de hoy para </span><span class="ubicacion"></span>
+                </div>
+                
+                <div class="card-body ">
+                    <span>Sensación térmica </span>
+                    <div class="estiloTemperatura" style="color:black;">                        
+                        <span id="sensacion"></span><span> ºC</span>
+                    </div>
+
+                    <div class="container">
+                        <div class="col form-group col-sm-6">
+                            <div class="form-group row ">
+                                <label for="" class="col-sm-6 col-form-label text-gray">Máx./Min.</label>
+                                <label for="" class="col-sm-6 col-form-label text-gray" id="maximos"></label>                             
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-6 col-form-label text-gray">Humedad</label>
+                                <label for="" class="col-sm-6 col-form-label text-gray" id="humedad"></label>
+                            </div>                    
+                        </div>                    
+                    
+                        <div class="col form-group col-sm-6">
+                            <div class="form-group row ">
+                                <label for="" class="col-sm-6 col-form-label text-gray">Viento</label>
+                                <label for="" class="col-sm-6 col-form-label text-gray" id="viento"></label>                               
+                            </div>
+                            <div class="form-group row ">
+                                <label for="" class="col-sm-6 col-form-label ">Presión</label>
+                                <label for="" class="col-sm-6 col-form-label " id="presion"></label>
+                            </div>                                                    
+                    
+                        </div>                   
+                    
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div class="card  w-100 " id="sec_diario">
+                <div class="card-header">
+                    <span id="">Pronóstico diario</span>
+                </div>
+                
+                <div class="card-body ">
+                    
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row" id="pronosticoDiario">
+                               
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="card  w-100 " id="sec_horas">
+                <div class="card-header">
+                    <span id="">Pronóstico cada 3 horas</span>
+                </div>
+                
+                <div class="card-body ">
+                    <table id="tablaPorHora" class="table table-striped">
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="card  w-100 " id="sec_aire">
+                <div class="card-header">
+                    <span>Calidad del aire</span>
+                </div>
+                
+                <div class="card-body ">                   
+                    <div class="container">
+                        <div class="row">
+                          
+                          <div class="col-md-6">
+                            <div class="card border-0">
+                                <div class="estiloAire" style="color: black;">
+                                    <span id="polucion"></span>
+                                </div>  
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-6">
+                            <div class="card border-0">
+                              <div class="card-body" id="componentesPolucion">
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>           
+        </div>
+    </div>
+
+    <footer class="idFooter"></footer>
+
+    <script src="./js/all.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+
+</body>
+
+
+</html>
