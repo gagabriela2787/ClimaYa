@@ -106,7 +106,7 @@ const APP_ID = "4090239d69cdb3874de692fd18539299";
 const fetchData = (position) => {
   const {latitude, longitude} = position.coords;
   fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=es&units=metric&appid=${APP_ID}`
+      `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=es&units=metric&appid=${APP_ID}`
     )
     .then((response) => response.json())
     .then((data) => setWeatherData(data));
@@ -170,7 +170,7 @@ const getDate = () => {
 const temperaturaPorDiaHora = (position) => {
   const {latitude, longitude} = position.coords;
   fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=es&units=metric&appid=${APP_ID}`
+    `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=es&units=metric&appid=${APP_ID}`
   )
   .then((response) => response.json())
   .then((data) => setPorDiaHora(data));
@@ -231,7 +231,7 @@ const polucion = (position) => {
   const {latitude, longitude} = position.coords;
   const fecha = position.timestamp;
   fetch(
-     `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=${APP_ID}`
+     `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=${APP_ID}`
     
   )
   .then((response) => response.json())
