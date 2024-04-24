@@ -262,10 +262,12 @@ function fondoBody(){
     body.style.backgroundImage = 'url("./images/dia.jpg")';
     body.style.backgroundPosition = "0 0";
     body.style.color = "#000000";
+    document.getElementsByTagName('form')[0].style.color = "#000000";
   } else {
     body.style.backgroundImage = 'url("./images/noche.jpg")';
     body.style.backgroundPosition = "0 0";
     body.style.color = "#FFFFFF";
+    document.getElementsByTagName('form')[0].style.color = "#FFFFFF";
   }
 }
 
